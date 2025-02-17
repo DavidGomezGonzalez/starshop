@@ -7,10 +7,7 @@ use Psr\Log\LoggerInterface;
 
 class StarshipRepository
 {
-    public function __construct(private LoggerInterface $logger)
-    {
-
-    }
+    public function __construct(private LoggerInterface $logger) {}
 
 
     public function findAll(): array
@@ -41,5 +38,17 @@ class StarshipRepository
                 'under construction',
             ),
         ];
+    }
+
+    public function find(int $id): ?Starship
+    {
+
+        foreach ($this->findAll() as $starship) {
+            if ($starship->getId() === $id) {
+                return $starship;
+            }
+        }
+
+        return null;
     }
 }
