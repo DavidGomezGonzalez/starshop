@@ -10,7 +10,9 @@
 		Starshop: your monopoly-busting option for Starship parts!
 	</h1>
 	<div>
-		Browse through {{ ships|length * 10 }} starships!
+		Browse through
+		{{ ships|length * 10 }}
+		starships!
 		{% if ships|length > 2 %}
 			<p>
 				{# Do you think "shiploads" will pass the legal team? #}
@@ -23,7 +25,11 @@
 		<table>
 			<tr>
 				<th>Name</th>
-				<td>{{ myShip.name }}</td>
+				<td>
+					<a href="{{ path('app_starship_show', {id: myShip.id}) }}">
+						{{ myShip.name }}
+					</a>
+				</td>
 			</tr>
 			<tr>
 				<th>Class</th>
